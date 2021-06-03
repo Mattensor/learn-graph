@@ -1,11 +1,11 @@
-# Learn GraphQL
+# Learn Graph Api
 
-Welcome to learn graphQL
+Welcome to learn graph api
 
-## Getting setup
+## Setup
 
-`npm run install`
+`npm i`
 
-## Running the app
+## Startup
 
-`npm run start`
+`npm run dev`

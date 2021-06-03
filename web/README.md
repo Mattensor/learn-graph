@@ -1,1 +1,11 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+# Learn Graph Web
+
+Welcome to learn graph web
+
+## Setup
+
+`npm i`
+
+## Startup
+
+`npm run dev`
