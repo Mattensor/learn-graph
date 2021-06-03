@@ -1,0 +1,16 @@
+overwrite: true
+schema: 'src/graphql/typeDefs/**/*.gql'
+documents: null
+generates:
+  src/graphql/generated.ts:
+    plugins:
+      - add:
+          content:
+            - '/* eslint-disable @typescript-eslint/no-explicit-any */'
+            - '/* eslint-disable @typescript-eslint/ban-types */'
+            - '/* eslint-disable no-use-before-define */'
+      - 'typescript'
+      - 'typescript-resolvers'
+    hooks:
+      afterOneFileWrite:
+        - prettier --write src/graphql/generated.ts

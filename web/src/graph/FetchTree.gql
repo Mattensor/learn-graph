@@ -1,0 +1,7 @@
+query FetchTree($id: ID!) {
+  fetchTree(id: $id) {
+    size
+    leaves
+    location
+  }
+}

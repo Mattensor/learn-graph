@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@fixtures": ["src/_fixtures_"],
+      "@generated": ["src/graph"],
+      "@typeDefs": ["src/graph/typeDefs"],
+      "@schema": ["src/graph/schema"],
+      "@resolvers": ["src/graph/resolvers"]
+    },
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"]
+}
