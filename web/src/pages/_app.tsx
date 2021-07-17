@@ -7,12 +7,12 @@ import '../styles/globals.scss'
 import { ApolloProvider } from '@apollo/client'
 import { apolloClient } from 'src/lib'
 
-export const WelcomeToTheForest: React.FC<AppProps> = ({ Component, pageProps }) => {
+export const Welcome: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <ApolloProvider client={apolloClient}>
       <div className={Styles.container}>
         <Head>
-          <title>Welcome to the forest</title>
+          <title>Welcome to the ocean</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
@@ -24,4 +24,4 @@ export const WelcomeToTheForest: React.FC<AppProps> = ({ Component, pageProps })
   )
 }
 
-export default WelcomeToTheForest
+export default Welcome

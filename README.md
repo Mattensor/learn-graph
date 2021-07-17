@@ -39,13 +39,3 @@ Start with schema first. We design the dream query from the clients perspective 
 - [Next.js](https://nextjs.org/) "Our beautiful Web framework"
   </br>
   </br>
-
-### Query
-
-</br>
-</br>
-
-### Mutation
-
-</br>
-</br>
