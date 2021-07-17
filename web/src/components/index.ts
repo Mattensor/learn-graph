@@ -1,4 +1,6 @@
 export { Card } from './Card'
 export { Footer } from './Footer'
-export { Forest } from './Forest'
+export { TheOcean } from './TheOcean'
 export { Title } from './Title'
+export { Sardine } from './Sardine'
+export { Detail } from './Detail'

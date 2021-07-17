@@ -1,5 +1,5 @@
 import 'graphql-import-node'
-import base from '../typeDefs/base.gql'
-import forest from '../typeDefs/forest.gql'
+import Base from '../typeDefs/Base.gql'
+import Sardine from '../typeDefs/Sardine.gql'
 
-export const typeDefs = [base, forest]
+export const typeDefs = [Base, Sardine]

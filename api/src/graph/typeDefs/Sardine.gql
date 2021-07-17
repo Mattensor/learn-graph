@@ -1,0 +1,16 @@
+type Sardine {
+  id: ID!
+  name: String!
+  potency: String
+  age: String
+  source: String
+}
+
+extend type Query {
+  getSardine(id: ID!): Sardine
+  sardines: [Sardine]
+}
+
+extend type Mutation {
+  feedSardine(id: ID!): Sardine
+}

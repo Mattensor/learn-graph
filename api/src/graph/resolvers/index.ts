@@ -1,12 +1,14 @@
 import { Resolvers } from '@generated'
-import { fetchTree } from './fetchTree'
-import { relocateTree } from './relocateTree'
+import { getSardine } from './getSardine'
+import { feedSardine } from './feedSardine'
+import { sardines } from './sardines'
 
 export const resolvers: Resolvers = {
   Query: {
-    fetchTree
+    getSardine,
+    sardines
   },
   Mutation: {
-    relocateTree
+    feedSardine
   }
 }

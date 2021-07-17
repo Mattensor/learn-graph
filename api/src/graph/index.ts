@@ -20,29 +20,31 @@ export type Scalars = {
 export type Mutation = {
   __typename?: 'Mutation'
   _base?: Maybe<Scalars['String']>
-  relocateTree: Tree
+  feedSardine?: Maybe<Sardine>
 }
 
-export type MutationRelocateTreeArgs = {
+export type MutationFeedSardineArgs = {
   id: Scalars['ID']
-  location: Scalars['String']
 }
 
 export type Query = {
   __typename?: 'Query'
   _base?: Maybe<Scalars['String']>
-  fetchTree?: Maybe<Tree>
+  getSardine?: Maybe<Sardine>
+  sardines?: Maybe<Array<Maybe<Sardine>>>
 }
 
-export type QueryFetchTreeArgs = {
+export type QueryGetSardineArgs = {
   id: Scalars['ID']
 }
 
-export type Tree = {
-  __typename?: 'Tree'
-  size: Scalars['String']
-  leaves?: Maybe<Scalars['String']>
-  location?: Maybe<Scalars['String']>
+export type Sardine = {
+  __typename?: 'Sardine'
+  id: Scalars['ID']
+  name: Scalars['String']
+  potency?: Maybe<Scalars['String']>
+  age?: Maybe<Scalars['String']>
+  source?: Maybe<Scalars['String']>
 }
 
 export type ResolverTypeWrapper<T> = Promise<T> | T
@@ -142,7 +144,7 @@ export type ResolversTypes = {
   String: ResolverTypeWrapper<Scalars['String']>
   ID: ResolverTypeWrapper<Scalars['ID']>
   Query: ResolverTypeWrapper<{}>
-  Tree: ResolverTypeWrapper<Tree>
+  Sardine: ResolverTypeWrapper<Sardine>
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>
 }
 
@@ -152,7 +154,7 @@ export type ResolversParentTypes = {
   String: Scalars['String']
   ID: Scalars['ID']
   Query: {}
-  Tree: Tree
+  Sardine: Sardine
   Boolean: Scalars['Boolean']
 }
 
@@ -161,11 +163,11 @@ export type MutationResolvers<
   ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']
 > = {
   _base?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>
-  relocateTree?: Resolver<
-    ResolversTypes['Tree'],
+  feedSardine?: Resolver<
+    Maybe<ResolversTypes['Sardine']>,
     ParentType,
     ContextType,
-    RequireFields<MutationRelocateTreeArgs, 'id' | 'location'>
+    RequireFields<MutationFeedSardineArgs, 'id'>
   >
 }
 
@@ -174,28 +176,31 @@ export type QueryResolvers<
   ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']
 > = {
   _base?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>
-  fetchTree?: Resolver<
-    Maybe<ResolversTypes['Tree']>,
+  getSardine?: Resolver<
+    Maybe<ResolversTypes['Sardine']>,
     ParentType,
     ContextType,
-    RequireFields<QueryFetchTreeArgs, 'id'>
+    RequireFields<QueryGetSardineArgs, 'id'>
   >
+  sardines?: Resolver<Maybe<Array<Maybe<ResolversTypes['Sardine']>>>, ParentType, ContextType>
 }
 
-export type TreeResolvers<
+export type SardineResolvers<
   ContextType = any,
-  ParentType extends ResolversParentTypes['Tree'] = ResolversParentTypes['Tree']
+  ParentType extends ResolversParentTypes['Sardine'] = ResolversParentTypes['Sardine']
 > = {
-  size?: Resolver<ResolversTypes['String'], ParentType, ContextType>
-  leaves?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>
-  location?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>
+  potency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>
+  age?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>
+  source?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>
 }
 
 export type Resolvers<ContextType = any> = {
   Mutation?: MutationResolvers<ContextType>
   Query?: QueryResolvers<ContextType>
-  Tree?: TreeResolvers<ContextType>
+  Sardine?: SardineResolvers<ContextType>
 }
 
 /**

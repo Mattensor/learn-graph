@@ -1,5 +1,5 @@
-import { Forest } from '@components'
+import { TheOcean } from '@components'
 
-const Home: React.FC = () => <Forest />
+const Home: React.FC = () => <TheOcean />
 
 export default Home

@@ -19,77 +19,137 @@ export type Scalars = {
 export type Mutation = {
   __typename?: 'Mutation'
   _base?: Maybe<Scalars['String']>
-  relocateTree: Tree
+  feedSardine?: Maybe<Sardine>
 }
 
-export type MutationRelocateTreeArgs = {
+export type MutationFeedSardineArgs = {
   id: Scalars['ID']
-  location: Scalars['String']
 }
 
 export type Query = {
   __typename?: 'Query'
   _base?: Maybe<Scalars['String']>
-  fetchTree?: Maybe<Tree>
+  getSardine?: Maybe<Sardine>
+  sardines?: Maybe<Array<Maybe<Sardine>>>
 }
 
-export type QueryFetchTreeArgs = {
+export type QueryGetSardineArgs = {
   id: Scalars['ID']
 }
 
-export type Tree = {
-  __typename?: 'Tree'
-  size: Scalars['String']
-  leaves?: Maybe<Scalars['String']>
-  location?: Maybe<Scalars['String']>
+export type Sardine = {
+  __typename?: 'Sardine'
+  id: Scalars['ID']
+  name: Scalars['String']
+  potency?: Maybe<Scalars['String']>
+  age?: Maybe<Scalars['String']>
+  source?: Maybe<Scalars['String']>
 }
 
-export type FetchTreeQueryVariables = Exact<{
+export type AllTheSardinesQueryVariables = Exact<{ [key: string]: never }>
+
+export type AllTheSardinesQuery = { __typename?: 'Query' } & {
+  sardines?: Maybe<Array<Maybe<{ __typename?: 'Sardine' } & Pick<Sardine, 'id' | 'name'>>>>
+}
+
+export type GetSardineQueryVariables = Exact<{
   id: Scalars['ID']
 }>
 
-export type FetchTreeQuery = { __typename?: 'Query' } & {
-  fetchTree?: Maybe<{ __typename?: 'Tree' } & Pick<Tree, 'size' | 'leaves' | 'location'>>
+export type GetSardineQuery = { __typename?: 'Query' } & {
+  getSardine?: Maybe<
+    { __typename?: 'Sardine' } & Pick<Sardine, 'id' | 'name' | 'potency' | 'age' | 'source'>
+  >
 }
 
-export const FetchTreeDocument = gql`
-  query FetchTree($id: ID!) {
-    fetchTree(id: $id) {
-      size
-      leaves
-      location
+export const AllTheSardinesDocument = gql`
+  query AllTheSardines {
+    sardines {
+      id
+      name
     }
   }
 `
 
 /**
- * __useFetchTreeQuery__
+ * __useAllTheSardinesQuery__
  *
- * To run a query within a React component, call `useFetchTreeQuery` and pass it any options that fit your needs.
- * When your component renders, `useFetchTreeQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useAllTheSardinesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAllTheSardinesQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useFetchTreeQuery({
+ * const { data, loading, error } = useAllTheSardinesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useAllTheSardinesQuery(
+  baseOptions?: Apollo.QueryHookOptions<AllTheSardinesQuery, AllTheSardinesQueryVariables>
+) {
+  const options = { ...defaultOptions, ...baseOptions }
+  return Apollo.useQuery<AllTheSardinesQuery, AllTheSardinesQueryVariables>(
+    AllTheSardinesDocument,
+    options
+  )
+}
+export function useAllTheSardinesLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<AllTheSardinesQuery, AllTheSardinesQueryVariables>
+) {
+  const options = { ...defaultOptions, ...baseOptions }
+  return Apollo.useLazyQuery<AllTheSardinesQuery, AllTheSardinesQueryVariables>(
+    AllTheSardinesDocument,
+    options
+  )
+}
+export type AllTheSardinesQueryHookResult = ReturnType<typeof useAllTheSardinesQuery>
+export type AllTheSardinesLazyQueryHookResult = ReturnType<typeof useAllTheSardinesLazyQuery>
+export type AllTheSardinesQueryResult = Apollo.QueryResult<
+  AllTheSardinesQuery,
+  AllTheSardinesQueryVariables
+>
+export const GetSardineDocument = gql`
+  query GetSardine($id: ID!) {
+    getSardine(id: $id) {
+      id
+      name
+      potency
+      age
+      source
+    }
+  }
+`
+
+/**
+ * __useGetSardineQuery__
+ *
+ * To run a query within a React component, call `useGetSardineQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetSardineQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetSardineQuery({
  *   variables: {
  *      id: // value for 'id'
  *   },
  * });
  */
-export function useFetchTreeQuery(
-  baseOptions: Apollo.QueryHookOptions<FetchTreeQuery, FetchTreeQueryVariables>
+export function useGetSardineQuery(
+  baseOptions: Apollo.QueryHookOptions<GetSardineQuery, GetSardineQueryVariables>
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useQuery<FetchTreeQuery, FetchTreeQueryVariables>(FetchTreeDocument, options)
+  return Apollo.useQuery<GetSardineQuery, GetSardineQueryVariables>(GetSardineDocument, options)
 }
-export function useFetchTreeLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<FetchTreeQuery, FetchTreeQueryVariables>
+export function useGetSardineLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<GetSardineQuery, GetSardineQueryVariables>
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useLazyQuery<FetchTreeQuery, FetchTreeQueryVariables>(FetchTreeDocument, options)
+  return Apollo.useLazyQuery<GetSardineQuery, GetSardineQueryVariables>(GetSardineDocument, options)
 }
-export type FetchTreeQueryHookResult = ReturnType<typeof useFetchTreeQuery>
-export type FetchTreeLazyQueryHookResult = ReturnType<typeof useFetchTreeLazyQuery>
-export type FetchTreeQueryResult = Apollo.QueryResult<FetchTreeQuery, FetchTreeQueryVariables>
+export type GetSardineQueryHookResult = ReturnType<typeof useGetSardineQuery>
+export type GetSardineLazyQueryHookResult = ReturnType<typeof useGetSardineLazyQuery>
+export type GetSardineQueryResult = Apollo.QueryResult<GetSardineQuery, GetSardineQueryVariables>

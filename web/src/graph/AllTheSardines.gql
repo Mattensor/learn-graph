@@ -1,0 +1,6 @@
+query AllTheSardines {
+  sardines {
+    id
+    name
+  }
+}

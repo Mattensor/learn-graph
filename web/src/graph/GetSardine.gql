@@ -1,0 +1,9 @@
+query GetSardine($id: ID!) {
+  getSardine(id: $id) {
+    id
+    name
+    potency
+    age
+    source
+  }
+}
